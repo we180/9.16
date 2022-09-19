@@ -139,7 +139,7 @@
                         <b>推荐人物</b>
                         <span>都是好康的哦</span>
                     </div>
-                    <ul>
+                    <ul class="v-list">
                         <li><img src="../assets/images/a1.jpg"><p>白上吹雪</p></li>
                         <li><img src="../assets/images/a2.jpg"><p>古守血游</p></li>
                         <li><img src="../assets/images/a3.jpg"><p>真白花音</p></li>
@@ -249,6 +249,7 @@
         /* background-color: yellow; */
         display: flex;
         align-items: center;
+        margin-left: 20px;
     }
 
     .web-logo .web-name {
@@ -289,9 +290,10 @@
         display: flex;
         flex-direction: row;
         background-color: gray;
-        width: 100vw;
+        width: 100%;
         justify-content: center;
         min-width: 1590px;
+        padding: 0px;
     }
     .menu-list li{
         width: 100px;
@@ -459,7 +461,7 @@
         bottom: 120px;
     }
     .vtb-list-all ul li{
-        margin-right: 55px;
+        margin-right: 70px;
         border: #99a9bf 2px solid;
         margin-bottom: 20px;
     }
@@ -512,5 +514,11 @@
     .xinxi a{
         color: chocolate;
         text-decoration: none;
+    }
+    .v-list{
+        padding: 0px;
+        margin: 0px;
+        position: relative;
+        left: 40px;
     }
 </style>
