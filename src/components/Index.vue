@@ -9,7 +9,7 @@
                     <el-input
                     placeholder="请输入内容"
                         prefix-icon="el-icon-search"
-                    v-model="input2">
+                    v-model="input0">
                 </el-input>
                 <el-button type="primary" icon="el-icon-search">搜索</el-button>
                 </div>
@@ -47,31 +47,31 @@
                     <tr>
                         <td>
                             <span>用户名：&nbsp;&nbsp;&nbsp;</span>
-                            <input type="text" style="width:200px;">
+                            <el-input type="text" placeholder="请输入用户名" v-model="input1" maxlength="10" show-word-limit style="width:220px"></el-input>
                         </td>
                     </tr>
                     <tr>
                         <td>
                             <span>昵称：&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
-                            <input type="password" style="width:200px">
+                            <el-input v-model="input2" placeholder="请输入昵称" style="width:220px"></el-input>
                         </td>
                     </tr>
                     <tr>
                         <td>
                             <span>密码：&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
-                            <input type="password" style="width:200px">
+                            <el-input placeholder="请输入密码" v-model="input3" show-password style="width:220px"></el-input>
                         </td>
                     </tr>
                     <tr>
                         <td>
                             <span>重复密码：</span>
-                            <input type="password" style="width:200px">
+                            <el-input placeholder="请重复密码" v-model="input4" show-password style="width:220px"></el-input>
                         </td>
                     </tr>
                     <tr>
                         <td>
                             <span>邮箱地址：</span>
-                            <input type="email" style="width:200px">
+                            <el-input placeholder="请输入邮箱" v-model="input5" clearable style="width:220px"></el-input>
                         </td>
                     </tr>
                     <tr>
@@ -96,8 +96,9 @@
                 </el-upload>
                 <div class="jianyi">
                     <h3>网站建议</h3>
-                    <textarea name="jianyi" id="" cols="40" rows="7"></textarea><br>
-                    <el-button type="primary" round>立即注册！</el-button>
+                    <textarea name="jianyi" id="" cols="40" rows="7"></textarea>
+                    <br>
+                    <el-button type="primary" round>广快提交！</el-button>
                 </div>
             </div>
             <hr>
@@ -174,6 +175,32 @@
                         </tr>
                     </tbody>
                 </table>
+                <el-table
+                :data="tableData"
+                border
+                style="width: 1510px" class="el-table">
+                <el-table-column
+                prop="name"
+                label="虚拟主播名称"
+                width="120">
+                </el-table-column>
+                <el-table-column
+                prop="link"
+                label="B站主页"
+                width="400">
+                </el-table-column>
+                <el-table-column
+                prop="jieshao"
+                label="基本介绍"
+                width="800">
+                </el-table-column>
+                <el-table-column
+                prop="fans"
+                label="粉丝数量"
+                width="189">
+                </el-table-column>
+                </el-table>
+                
             <div class="footer">
                 <a href="">关于我们</a>
                 <a href="">联系我们</a>
@@ -201,13 +228,18 @@
         components: {},
         data() {
             return {
+                input0: '',
+                input1: '',
                 input2: '',
+                input3: '',
+                input4: '',
+                input5: '',
                 imglist:[
                     {url:require("../assets/images/111.jpg")},
                     {url:require("../assets/images/222.jpg")},
                     {url:require("../assets/images/333.jpg")},
                     {url:require("../assets/images/444.jpg")}
-                ]
+                ],
 
                 // imgArr:[
                 //     "../assets/images/1.jpg",
@@ -215,6 +247,27 @@
                 //     "../assets/images/3.jpg"
                 // ],
                 // index:0
+                tableData: [{
+                    name: '神楽七奈',
+                    link: 'https://space.bilibili.com/386900246/',
+                    jieshao: '🌶️🌶️🌶️🌶️🌶️🌶️🌶️大家好辣！我是从唐辛子星来的，神乐七奈！平常是扮成插画师，偷偷地辛略地球。',
+                    fans:'200.8w'
+                    }, {
+                    name: '神楽Mea',
+                    link: 'https://space.bilibili.com/349991143/',
+                    jieshao: '个人势VTuber，曾从属于画师Paryi的虚拟YouTuber团体Project Paryi(ぱりぷろ)，后该团体解散。自称清楚系Vtuber，然而在初配信中说出了大量问题发言，是所谓的恶俗系(？)主播。',
+                    fans:'87.6w'
+                    }, {
+                    name: '永雏塔菲',
+                    link: 'https://space.bilibili.com/1265680561/',
+                    jieshao: '永雏塔菲是一名经营着侦探事务所的少女王牌侦探发明家[5]。她来自1885年，乘着自己发明的时光机试图穿越到100年后的时空，却因迟到36年来到了现代，并被现代的电子游戏吸引，不想返回过去',
+                    fans:'60.8w'
+                    }, {
+                    name: '有栖Mana',
+                    link: 'https://space.bilibili.com/3149619/',
+                    jieshao: '是一只来自韩国的小狐狸。据本人所说狐狸（角龙）每过一百年就会长一条尾巴，颜色可以到九尾后再定（曾说过金色好像不错）。身高155cm，耳朵（龙角）就有15cm。',
+                    fans:'63.9w'
+                }]
             }
         },
         methods: {
@@ -333,17 +386,19 @@
         position: relative;
         right: 45px;
         top: 5px;
-        z-index: 7;
+        z-index: 5;
     }
     .drop li{
         text-align: center;
         line-height: 50px;
     }
     .li-down ul{
+        visibility: hidden;
         opacity: 0;
     }
     .li-down:hover .drop{
         transition: all 0.5s;
+        visibility: visible;
         opacity: 100;
     }
     .login{
@@ -354,6 +409,8 @@
     }
     .login table{
         padding: 15px;
+        position: relative;
+        z-index: 6;
     }
     tr{
         line-height: 50px;
@@ -415,14 +472,17 @@
     }
     .upload-demo{
         position: relative;
-        right: 218px;
+        left: 405px;
         bottom: 265px;
+        width: 360px;
+        height: 207px;
     }
     .jianyi{
         margin-top: -225px;
         position: relative;
         right: 220px;
         bottom: 20px;
+        z-index: 2;
     }
     textarea{
         margin-bottom: 7px;
@@ -520,5 +580,9 @@
         margin: 0px;
         position: relative;
         left: 40px;
+    }
+    .el-table{
+        margin-left: 35px;
+        margin-bottom: 20px;
     }
 </style>
