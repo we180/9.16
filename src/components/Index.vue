@@ -1,21 +1,46 @@
 <template>
         <div class="page">
-            <div class="header">
-                <div class="web-logo">
-                    <div><img src="../assets/images/web-logo.png" /></div>
-                    <div class="web-name">无锡机电高等职业技术学校二次元网站</div>
+            <div class="big-header">
+                <div class="header-top">
+                    <a href="https://www.bilibili.com" target="_blank"><span><i class="el-icon-house"></i>主页</span></a>
+                    <a href="https://www.bilibili.com" target="_blank"><span><i class="el-icon-star-on"></i>收藏</span></a>
+                    <a href="https://www.bilibili.com" target="_blank"><span><i class="el-icon-picture-outline"></i>图片</span></a>
+                    <a href="https://www.bilibili.com" target="_blank"><span><i class="el-icon-film"></i>视频</span></a>
+                    <a href="https://www.bilibili.com" target="_blank"><span><i class="el-icon-shopping-cart-2"></i>零元购</span></a>
+                    <a href="https://www.bilibili.com" target="_blank"><span><i class="el-icon-video-camera"></i>番剧</span></a>
+                    <a href="https://www.bilibili.com" target="_blank"><span><i class="el-icon-files"></i>漫画</span></a>
+                    <a href="https://www.bilibili.com" target="_blank"><span><i class="el-icon-s-custom"></i>舞蹈</span></a>
+                    <a href="https://www.bilibili.com" target="_blank"><span><i class="el-icon-food"></i>美食</span></a>
+                    <br>
+                    <el-input class="top-s"
+                        placeholder="输入内容搜索全网！"
+                            prefix-icon="el-icon-search"
+                        v-model="input0">
+                    </el-input>
+                    <el-button type="primary" icon="el-icon-search" >搜索</el-button>
+                    <el-button type="danger" round class="top-b"><i class="el-icon-upload"></i>投递你的稿件！</el-button>
+                    <!-- <el-rate  v-model="value2" :colors="colors" class="rate">评分</el-rate> -->
+                    
+
+
                 </div>
-                <div class="serach">
-                    <el-input
-                    placeholder="请输入内容"
-                        prefix-icon="el-icon-search"
-                    v-model="input0">
-                </el-input>
-                <el-button type="primary" icon="el-icon-search">搜索</el-button>
-                </div>
-                <div class="web-contact">
-                    <div class="web-contact-label"><i class="el-icon-phone-outline"></i> 全国服务热线</div>
-                    <div class="phone-400">114-514-1919</div>
+                <div class="header">
+                    <div class="web-logo">
+                        <div class="b-logo"><img src="../assets/images/b-logo.png" /></div>
+                        <div class="web-name">无锡机电高等职业技术学校二次元网站</div>
+                    </div>
+                    <div class="serach">
+                        <el-input
+                        placeholder="输入内容搜索本站"
+                            prefix-icon="el-icon-search"
+                        v-model="input0">
+                    </el-input>
+                    <el-button type="primary" icon="el-icon-search" class="top-s2">搜索</el-button>
+                    </div>
+                    <div class="web-contact">
+                        <div class="web-contact-label"><i class="el-icon-phone-outline"></i> 全国服务热线</div>
+                        <div class="phone-400">114-514-1919</div>
+                    </div>
                 </div>
             </div>
             <div class="menu-list">
@@ -212,6 +237,7 @@
                 <a href="https://www.bilibili.com/" target="_blank">bilibili</a>
                 <a href="https://www.pixiv.net/" target="_blank">pixiv</a>
                 <a href="https://www.baidu.com/" target="_blank">百度</a>
+                
                 <br>
                 <span>传送门:</span>
                 <a href="http://www.steampowered.com/" target="_blank">steam</a>
@@ -228,6 +254,8 @@
         components: {},
         data() {
             return {
+                value2: null,
+                colors: ['#99A9BF', '#F7BA2A', '#FF9900'] ,
                 input0: '',
                 input1: '',
                 input2: '',
@@ -268,6 +296,7 @@
                     jieshao: '是一只来自韩国的小狐狸。据本人所说狐狸（角龙）每过一百年就会长一条尾巴，颜色可以到九尾后再定（曾说过金色好像不错）。身高155cm，耳朵（龙角）就有15cm。',
                     fans:'63.9w'
                 }]
+                
             }
         },
         methods: {
@@ -281,13 +310,61 @@
 
 <style scoped>
     .page {
-        width: 100%;
+        width: 1600px;
         min-width: 1600px;
-        max-width: 1600px;
         margin: 0px auto;
         background-color: whitesmoke;
     }
-    
+    .header-top{
+        background-image: url(../assets/images/head.png);
+        width: 1600px;
+        height: 180px;
+    }
+    .top-s{
+        width: 500px;
+        margin-right: 5px;
+    }
+    .b-logo{
+        position: relative;
+        bottom: 10px;
+        height: 95px;
+    }
+    .top-s2{
+        margin-left: 5px;
+    }
+    .top-b{
+        position: relative;
+        left: 220px;
+    }
+    .header-top a{
+        display: inline-block;
+        text-decoration: none;
+        width: 120px;
+        height: 100px;
+        line-height: 70px;
+        margin-left: 20px;
+        text-align: center;
+    }
+    .header-top a span{
+        font-size: 25px;
+        font-weight: 700;
+        position: relative;
+        top: 25px;
+        transition-property: top;
+        transition-timing-function: ease-in-out;
+        transition: all 0.5s;
+        color: bisque;
+        
+    }
+    .header-top a:hover span{
+        font-size: 27px;
+        position: relative;
+        top:1px;
+        color: hotpink;
+        transition-property: color,top,font-size;
+        transition-timing-function: ease-in-out;
+        transition: all 0.5s;
+    }
     .header {
         /* background-color: #666; */
         width: 1440px;
@@ -336,14 +413,13 @@
         flex-direction: row;
     }
     .menu-list{
-        display: flex;
         z-index: 5;
     }
     .list{
         display: flex;
         flex-direction: row;
         background-color: gray;
-        width: 100%;
+        /* width: 100vw; */
         justify-content: center;
         min-width: 1590px;
         padding: 0px;
@@ -533,6 +609,7 @@
     .footer{
         font-size: 20px;
         background-color: #d3dce6;
+        /* width: 100vw; */
     }
     .footer a{
         text-decoration: none;
@@ -585,4 +662,5 @@
         margin-left: 35px;
         margin-bottom: 20px;
     }
+
 </style>
